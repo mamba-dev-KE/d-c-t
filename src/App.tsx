@@ -1,4 +1,4 @@
-import { Header } from '@/components';
+import { Header, Movies } from '@/components';
 
 export const App = () => (
   <div>

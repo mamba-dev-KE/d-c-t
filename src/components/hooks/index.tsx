@@ -1,0 +1,5 @@
+export ReactQueryClientProvider = () => (
+    <QueryClientProvider>
+
+    </QueryClientProvider>
+)
