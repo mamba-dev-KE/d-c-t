@@ -1,3 +1,8 @@
 import { Header } from '@/components';
 
-export const App = () => <div>{<Header />}</div>;
+export const App = () => (
+  <div>
+    <Header />
+    <Movies />
+  </div>
+);
