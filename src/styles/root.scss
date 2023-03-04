@@ -1,0 +1,6 @@
+.home {
+  &__title {
+    font-size: var(--fs-700);
+    padding-block: min(1rem, 2vw);
+  }
+}

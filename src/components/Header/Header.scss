@@ -1,4 +1,23 @@
 .header {
-  min-height: 7vh;
-  background-color: bisque;
+  min-height: 5vh;
+  background-color: rgb(6, 6, 37);
+  color: white;
+
+  &__logo {
+    font-size: var(--fs-500);
+  }
+
+  &__nav-list {
+    list-style-type: none;
+
+    li a {
+      color: white;
+      text-decoration: none;
+      font-size: var(--fs-400);
+    }
+  }
+
+  .active {
+    border-bottom: 2px solid hsl(0, 0%, 100%);
+  }
 }
