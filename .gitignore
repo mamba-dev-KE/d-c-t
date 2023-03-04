@@ -1,3 +1,2 @@
 node_modules
 .env
-https://api.themoviedb.org/3/movie/latest?api_key=<<api_key>>&language=en-US

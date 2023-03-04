@@ -3,4 +3,23 @@
     font-size: var(--fs-700);
     padding-block: min(1rem, 2vw);
   }
+
+  &__movie-cards {
+    min-height: 70vh;
+
+    display: grid;
+    place-items: center;
+  }
+
+  &__movie-card {
+    width: 35rem;
+  }
+
+  &__movie-card img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+
+    border-radius: 33% 67% 77% 23% / 47% 44% 56% 53%;
+  }
 }
