@@ -1,6 +1,6 @@
 import { fetchData } from "@/utils";
 
-interface Movies {
+export interface Movies {
     adult: boolean;
     backdrop_path: string | null;
     id: number;
@@ -18,7 +18,7 @@ interface Movies {
     vote_count: number;
 }
 
-interface Shows extends Pick<Movies, "adult" | "backdrop_path" | "id" | "original_language" | "overview" | "poster_path" | "media_type" | "genre_ids" | "popularity" | "vote_average" | "vote_count"> {
+export interface Shows extends Pick<Movies, "adult" | "backdrop_path" | "id" | "original_language" | "overview" | "poster_path" | "media_type" | "genre_ids" | "popularity" | "vote_average" | "vote_count"> {
     name: string;
     original_name: string;
     first_air_date: string;

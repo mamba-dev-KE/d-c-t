@@ -33,6 +33,11 @@ body {
   min-height: 100vh;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 /* UTILITY CLASSES */
 
 .container {
@@ -43,6 +48,10 @@ body {
 .flex {
   display: flex;
   gap: var(--gap, 1rem);
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .flex-grow {
@@ -59,6 +68,11 @@ body {
 
 .items-center {
   align-items: center;
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
 }
 
 .outline {

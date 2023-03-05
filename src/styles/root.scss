@@ -11,6 +11,10 @@
     place-items: center;
   }
 
+  &__card-container {
+    --gap: 4rem;
+  }
+
   &__card {
     width: 35rem;
   }
@@ -25,5 +29,19 @@
 
   &__card--show img {
     border-radius: 70% 30% 18% 82% / 47% 44% 56% 53%;
+  }
+
+  h4 {
+    background-image: linear-gradient(
+      to right,
+      hsl(var(--clr-blue)),
+      hsl(var(--clr-yellow))
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    font-size: var(--fs-500);
   }
 }

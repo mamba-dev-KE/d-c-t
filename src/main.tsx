@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Root, { loader as rootLoader } from './pages';
-import Movies from './pages/movies';
+import Movies, { loader as moviesLoader } from './pages/movies';
 import './index.scss';
 import {
   RouterProvider,
@@ -18,7 +18,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Root />} loader={rootLoader} />
-      <Route path="movies" element={<Movies />} />
+      <Route path="movies" element={<Movies />} loader={moviesLoader} />
       <Route path="shows" element={<Shows />} />
     </Route>
   )
