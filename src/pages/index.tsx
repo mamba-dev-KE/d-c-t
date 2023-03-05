@@ -77,6 +77,8 @@ export const Root = () => {
               const randomNo = generateRandomNumber(movies.length);
               const movie = movies[randomNo];
 
+              console.log(movie)
+
               return (
                 <motion.article
                   variants={category}

@@ -18,10 +18,13 @@ interface Movies {
     vote_count: number;
 }
 
-interface Shows {
+interface Shows extends Pick<Movies, "adult" | "backdrop_path" | "id" | "original_language" | "overview" | "poster_path" | "media_type" | "genre_ids" | "popularity" | "vote_average" | "vote_count"> {
+    name: string;
+    original_name: string;
+    first_air_date: string;
+    origin_country: string[];
 
 }
-
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 export const getTrendingMovies = async () => {
