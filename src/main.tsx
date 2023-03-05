@@ -4,6 +4,10 @@ import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Root, { loader as rootLoader } from './pages';
 import Movies, { loader as moviesLoader } from './pages/movies';
+import MovieDetails, {
+  loader as movieDetailsLoader,
+} from './pages/movie-details';
+
 import './index.scss';
 import {
   RouterProvider,
@@ -18,7 +22,14 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Root />} loader={rootLoader} />
-      <Route path="movies" element={<Movies />} loader={moviesLoader} />
+      <Route path="movies">
+        <Route index element={<Movies />} loader={moviesLoader} />
+        <Route
+          path=":id"
+          element={<MovieDetails />}
+          loader={movieDetailsLoader}
+        />
+      </Route>
       <Route path="shows" element={<Shows />} />
     </Route>
   )

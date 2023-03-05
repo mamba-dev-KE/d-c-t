@@ -2,7 +2,7 @@ import { Await, defer, useLoaderData } from 'react-router-dom';
 import { getTrendingMovies } from '@/api/api';
 import { Suspense } from 'react';
 import MoviesList from '@/components/Movies/MoviesList';
-import '@/styles/movies.scss'
+import '@/styles/movies.scss';
 
 export const loader = () => {
   return defer({ movies: getTrendingMovies() });

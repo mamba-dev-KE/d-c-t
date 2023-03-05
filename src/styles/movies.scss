@@ -1,7 +1,7 @@
 .movies {
   &__list-container {
     -gap: 4rem;
-    
+
     grid-template-columns: repeat(auto-fill, minmax(20rem, auto));
     padding-block: 2rem;
   }
@@ -23,5 +23,11 @@
     padding-block: 1.5rem;
 
     backdrop-filter: blur(10px);
+  }
+}
+
+.movie__details {
+  &-title {
+    padding-block: 1rem;
   }
 }
