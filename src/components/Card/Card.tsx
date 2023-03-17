@@ -25,11 +25,7 @@ export const Card = ({ items }: Props) => {
   const { id, backdrop_path, title, name } = items;
 
   return (
-    <motion.article
-      variants={cardVariants}
-      key={id}
-      className="movies__list-card"
-    >
+    <motion.article variants={cardVariants} className="movies__list-card">
       <Link to={String(id)}>
         <img
           src={
