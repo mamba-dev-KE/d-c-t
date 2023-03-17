@@ -71,7 +71,7 @@ export interface Shows extends Pick<Movies, "adult" | "backdrop_path" | "id" | "
     original_name: string;
     first_air_date: string;
     origin_country: string[];
-
+    episode_run_time: number[]
 }
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
@@ -87,5 +87,10 @@ export const getTrendingShows = async () => {
 
 export const getMovie = async (id?: string) => {
     const res = await fetchData<Movie>(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`)
+    return res
+}
+
+export const getShow = async (id?: string) => {
+    const res = await fetchData<Movie>(`https://api.themoviedb.org/3/tv/${id}?api_key=${API_KEY}`)
     return res
 }
