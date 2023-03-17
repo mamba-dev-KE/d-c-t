@@ -1,4 +1,4 @@
-import { getMovie, getShow } from '@/api/api';
+import { getShow } from '@/api/api';
 import { Suspense } from 'react';
 import {
   Await,
@@ -7,6 +7,7 @@ import {
   defer,
   useLoaderData,
 } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import '@/styles/movies.scss';
 
 export const loader = ({ params }: LoaderFunctionArgs) => {
@@ -42,7 +43,10 @@ const ShowDetails = () => {
                   {show?.name} : {show?.tagline ?? ''}
                 </h1>
               </div>
-              <img
+              <motion.img
+                initial={{ opacity: 0, filter: 'blur(10px)' }}
+                animate={{ opacity: 1, filter: 'blur(0px)' }}
+                style={{ aspectRatio: '16/9', width: '100%' }}
                 src={`https://image.tmdb.org/t/p/w1280${show?.backdrop_path}`}
                 alt=""
               />
