@@ -14,20 +14,6 @@ export const loader = ({ params }: LoaderFunctionArgs) => {
   return defer({ show: getShow(params.id) });
 };
 
-// return (
-//     <section className="shows">
-//       <h1>Trending Shows</h1>
-//       <Suspense fallback={<h2>Loading...</h2>}>
-//         <Await resolve={showsPromise.shows}>
-//           {(shows) => {
-//             console.log(shows);
-//             return <ShowsList shows={shows} />;
-//           }}
-//         </Await>
-//       </Suspense>
-//     </section>
-//   );
-
 const ShowDetails = () => {
   const showPromise = useLoaderData() as any;
 
