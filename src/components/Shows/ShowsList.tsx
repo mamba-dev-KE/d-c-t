@@ -1,12 +1,12 @@
-import type { Movies } from '@/api/api';
 import { motion } from 'framer-motion';
-import { Card as MovieCard } from '../Card/Card';
+import { Card as ShowCard } from '../Card/Card';
+import type { Shows } from '@/api/api';
 
 type Props = {
-  movies: Movies[];
+  shows: Shows[];
 };
 
-export const container = {
+const container = {
   hidden: {
     opacity: 0,
     filter: 'blur(10px)',
@@ -24,7 +24,7 @@ export const container = {
   },
 };
 
-const MoviesList = ({ movies }: Props) => {
+const ShowsList = ({ shows }: Props) => {
   return (
     <motion.div
       initial="hidden"
@@ -32,11 +32,11 @@ const MoviesList = ({ movies }: Props) => {
       variants={container}
       className="movies__list-container grid"
     >
-      {movies?.map(({ backdrop_path, id, title }) => (
-        <MovieCard items={{ backdrop_path, id, title }} />
+      {shows?.map(({ id, backdrop_path, name }) => (
+        <ShowCard items={{ id, backdrop_path, name }} />
       ))}
     </motion.div>
   );
 };
 
-export default MoviesList;
+export default ShowsList;

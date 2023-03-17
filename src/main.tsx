@@ -16,7 +16,7 @@ import {
   Route,
 } from 'react-router-dom';
 import Layout from '@/components/Layout/Layout';
-import Shows from './pages/shows';
+import Shows, { loader as showsLoader } from './pages/shows';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,7 +30,7 @@ const router = createBrowserRouter(
           loader={movieDetailsLoader}
         />
       </Route>
-      <Route path="shows" element={<Shows />} />
+      <Route path="shows" element={<Shows />} loader={showsLoader} />
     </Route>
   )
 );
