@@ -33,7 +33,7 @@ const MoviesList = ({ movies }: Props) => {
       className="movies__list-container grid"
     >
       {movies?.map(({ backdrop_path, id, title }) => (
-        <MovieCard items={{ backdrop_path, id, title }} />
+        <MovieCard key={id} items={{ backdrop_path, id, title }} />
       ))}
     </motion.div>
   );

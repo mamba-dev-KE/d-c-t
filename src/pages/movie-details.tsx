@@ -2,6 +2,7 @@ import { getMovie } from '@/api/api';
 import { Suspense } from 'react';
 import {
   Await,
+  Link,
   LoaderFunctionArgs,
   defer,
   useLoaderData,
@@ -24,9 +25,12 @@ const MovieDetails = () => {
         >
           {(movie) => (
             <div className="movie__details-container">
-              <h1 className="movie__details-title text-center">
-                {movie?.title} : {movie?.tagline ?? ''}
-              </h1>
+              <div className="flex items-center">
+                <Link to="..">Back</Link>
+                <h1 className="movie__details-title text-center">
+                  {movie?.title} : {movie?.tagline ?? ''}
+                </h1>
+              </div>
               <img
                 src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}`}
                 alt=""
