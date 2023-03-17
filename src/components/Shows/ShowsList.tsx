@@ -33,7 +33,7 @@ const ShowsList = ({ shows }: Props) => {
       className="movies__list-container grid"
     >
       {shows?.map(({ id, backdrop_path, name }) => (
-        <ShowCard items={{ id, backdrop_path, name }} />
+        <ShowCard key={id} items={{ id, backdrop_path, name }} />
       ))}
     </motion.div>
   );

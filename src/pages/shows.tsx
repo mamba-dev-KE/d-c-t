@@ -16,7 +16,10 @@ const Shows = () => {
       <h1>Trending Shows</h1>
       <Suspense fallback={<h2>Loading...</h2>}>
         <Await resolve={showsPromise.shows}>
-          {(shows) => <ShowsList shows={shows} />}
+          {(shows) => {
+            console.log(shows);
+            return <ShowsList shows={shows} />;
+          }}
         </Await>
       </Suspense>
     </section>
