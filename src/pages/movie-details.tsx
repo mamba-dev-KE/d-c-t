@@ -7,6 +7,8 @@ import {
   defer,
   useLoaderData,
 } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { imageFadeIn } from '@/common/animations';
 import '@/styles/movies.scss';
 
 export const loader = ({ params }: LoaderFunctionArgs) => {
@@ -31,8 +33,11 @@ const MovieDetails = () => {
                   {movie?.title} : {movie?.tagline ?? ''}
                 </h1>
               </div>
-              <img
-                src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}`}
+              <motion.img
+                variants={imageFadeIn}
+                initial="hidden"
+                animate="visible"
+                src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}` ?? ''}
                 alt=""
               />
               <div className="">
