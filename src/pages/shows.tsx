@@ -1,7 +1,7 @@
 import { Await, defer, useLoaderData } from 'react-router-dom';
 import { getTrendingShows } from '@/api/api';
 import { Suspense } from 'react';
-import ShowsList from '@/components/Shows/ShowsList';
+import { ShowsList } from '@/components';
 import '@/styles/shows.scss';
 
 export const loader = () => {
