@@ -13,7 +13,7 @@ const Shows = () => {
 
   return (
     <section className="shows">
-      <h1>Trending Shows</h1>
+      <h1 className="shows__title text-center">Trending Shows</h1>
       <Suspense fallback={<h2>Loading...</h2>}>
         <Await resolve={showsPromise.shows}>
           {(shows) => {

@@ -16,9 +16,11 @@ export const Root = () => {
 
   const title: Variants = {
     hidden: {
-      y: -100,
+      opacity: 0,
+      y: 100,
     },
     visible: {
+      opacity: 1,
       y: 0,
     },
   };

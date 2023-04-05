@@ -12,8 +12,8 @@ const Movies = () => {
   const moviesPromise = useLoaderData() as any;
 
   return (
-    <section className="movie">
-      <h1>Trending Movies</h1>
+    <section className="movies">
+      <h1 className="movies__title text-center">Trending Movies</h1>
       <Suspense fallback={<h2>Loading...</h2>}>
         <Await resolve={moviesPromise.movies}>
           {(movies) => <MoviesList movies={movies} />}

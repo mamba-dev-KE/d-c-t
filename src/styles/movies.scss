@@ -1,4 +1,9 @@
 .movies {
+  &__title {
+    padding-block: 2rem;
+    font-size: var(--fs-500);
+  }
+
   &__list-container {
     -gap: 4rem;
 

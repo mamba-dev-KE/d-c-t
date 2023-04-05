@@ -26,7 +26,7 @@ export const Card = ({ items }: Props) => {
 
   return (
     <motion.article variants={cardVariants} className="movies__list-card">
-      <Link to={String(id)}>
+      <Link to={String(id)} style={{ textDecoration: 'none', color: 'black' }}>
         <img
           src={
             backdrop_path
