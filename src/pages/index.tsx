@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Await, Link, defer, useLoaderData } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { getTrendingMovies, getTrendingShows } from '@/api/api';
+import { Variants, motion } from 'framer-motion';
+import { Movie, Shows, getTrendingMovies, getTrendingShows } from '@/api/api';
 import { generateRandomNumber } from '@/utils';
 import '@/styles/root.scss';
 
@@ -10,9 +10,20 @@ export const loader = () => {
 };
 
 export const Root = () => {
-  const moviePromise = useLoaderData() as any;
+  const loaderData = useLoaderData() as Awaited<
+    Promise<{ movie: Movie; shows: Shows }>
+  >;
 
-  const categories = {
+  const title: Variants = {
+    hidden: {
+      y: -100,
+    },
+    visible: {
+      y: 0,
+    },
+  };
+
+  const categories: Variants = {
     hidden: {
       opacity: 0,
     },
@@ -24,7 +35,7 @@ export const Root = () => {
     },
   };
 
-  const category = {
+  const category: Variants = {
     hidden: {
       opacity: 0,
       scale: 0.5,
@@ -38,25 +49,25 @@ export const Root = () => {
   };
 
   return (
-    <section className="home">
+    <motion.section initial="hidden" animate="visible" className="home">
       <h1 className="home__title text-center">Movies or Series!</h1>
       <Suspense
         fallback={
-          <h2
-            style={{ textAlign: 'center', color: 'pink', fontSize: '1.5rem' }}
+          <motion.h2
+            variants={title}
+            style={{
+              textAlign: 'center',
+              color: 'burlywood',
+              fontSize: '1.5rem',
+            }}
           >
-            Loading..please wait
-          </h2>
+            Loading..please wait...
+          </motion.h2>
         }
       >
-        <motion.div
-          variants={categories}
-          initial="hidden"
-          animate="visible"
-          className="home__cards"
-        >
+        <motion.div variants={categories} className="home__cards">
           <Await
-            resolve={moviePromise.movie}
+            resolve={loaderData.movie}
             errorElement={<h2>An error occured</h2>}
           >
             {(movies) => {
@@ -90,7 +101,7 @@ export const Root = () => {
             }}
           </Await>
           <Await
-            resolve={moviePromise.shows}
+            resolve={loaderData.shows}
             errorElement={<h2>An error occured</h2>}
           >
             {(shows) => {
@@ -123,7 +134,7 @@ export const Root = () => {
           </Await>
         </motion.div>
       </Suspense>
-    </section>
+    </motion.section>
   );
 };
 
