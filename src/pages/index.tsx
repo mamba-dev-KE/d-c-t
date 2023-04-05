@@ -40,16 +40,24 @@ export const Root = () => {
   return (
     <section className="home">
       <h1 className="home__title text-center">Movies or Series!</h1>
-      <Suspense fallback={<h2>Loading... please wait..</h2>}>
+      <Suspense
+        fallback={
+          <h2
+            style={{ textAlign: 'center', color: 'pink', fontSize: '1.5rem' }}
+          >
+            Loading..please wait
+          </h2>
+        }
+      >
         <motion.div
           variants={categories}
           initial="hidden"
           animate="visible"
-          className="home__cards flex justify-center"
+          className="home__cards"
         >
           <Await
             resolve={moviePromise.movie}
-            errorElement={<h2>AN error occured</h2>}
+            errorElement={<h2>An error occured</h2>}
           >
             {(movies) => {
               const randomNo = generateRandomNumber(movies.length);
@@ -60,15 +68,22 @@ export const Root = () => {
                   <div className="home__card-container flex flex-col">
                     <motion.article
                       variants={category}
-                      className="home__card flex-1"
+                      className="home__card"
+                      style={{ overflow: 'hidden' }}
                     >
                       <img
-                        src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}`}
+                        src={
+                          `https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}` ??
+                          'https://via.placeholder.com/600x400'
+                        }
                         alt={movie?.title}
                         draggable={false}
+                        style={{ objectFit: 'cover' }}
                       />
                     </motion.article>
-                    <h4 className="text-center">{movie?.title}</h4>
+                    <h4 className="home__card-title text-center">
+                      {movie?.title}
+                    </h4>
                   </div>
                 </Link>
               );
@@ -76,28 +91,31 @@ export const Root = () => {
           </Await>
           <Await
             resolve={moviePromise.shows}
-            errorElement={<h2>AN error occured</h2>}
+            errorElement={<h2>An error occured</h2>}
           >
             {(shows) => {
               const randomNo = generateRandomNumber(shows.length);
               const show = shows[randomNo];
-
-              console.log(show);
 
               return (
                 <Link to="shows">
                   <div className="home__card-container flex flex-col">
                     <motion.article
                       variants={category}
-                      className="home__card home__card--show flex-1"
+                      className="home__card home__card--show"
                     >
                       <img
-                        src={`https://image.tmdb.org/t/p/w1280${show?.backdrop_path}`}
+                        src={
+                          `https://image.tmdb.org/t/p/w1280${show?.backdrop_path}` ??
+                          'https://via.placeholder.com/600x400'
+                        }
                         alt={show?.title}
                         draggable={false}
                       />
                     </motion.article>
-                    <h4 className="text-center">{show?.name}</h4>
+                    <h4 className="home__card-title text-center">
+                      {show?.name}
+                    </h4>
                   </div>
                 </Link>
               );
