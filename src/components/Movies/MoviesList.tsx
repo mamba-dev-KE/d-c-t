@@ -24,7 +24,7 @@ export const container = {
   },
 };
 
-const MoviesList = ({ movies }: Props) => {
+export const MoviesList = ({ movies }: Props) => {
   return (
     <motion.div
       initial="hidden"
@@ -38,5 +38,3 @@ const MoviesList = ({ movies }: Props) => {
     </motion.div>
   );
 };
-
-export default MoviesList;

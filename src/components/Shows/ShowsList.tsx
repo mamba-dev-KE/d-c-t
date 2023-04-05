@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { Card as ShowCard } from '../Card/Card';
 import type { Shows } from '@/api/api';
+import { Card as ShowCard } from '../Card/Card';
 
 type Props = {
   shows: Shows[];
@@ -24,7 +24,7 @@ const container = {
   },
 };
 
-const ShowsList = ({ shows }: Props) => {
+export const ShowsList = ({ shows }: Props) => {
   return (
     <motion.div
       initial="hidden"
@@ -38,5 +38,3 @@ const ShowsList = ({ shows }: Props) => {
     </motion.div>
   );
 };
-
-export default ShowsList;
