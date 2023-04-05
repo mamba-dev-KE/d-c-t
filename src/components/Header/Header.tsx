@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Header.scss';
 
 export const Header = () => {
@@ -6,7 +6,11 @@ export const Header = () => {
     <header className="header flex items-center">
       <div className="container flex justify-between items-center">
         <div className="header__logo">
-          <p>Naiflix</p>
+          <p>
+            <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
+              Naiflix
+            </Link>
+          </p>
         </div>
         <nav className="header__nav">
           <ul className="header__nav-list flex items-center">

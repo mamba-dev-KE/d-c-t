@@ -64,7 +64,7 @@ export const Root = () => {
               const movie = movies[randomNo];
 
               return (
-                <Link to="movies">
+                <Link to="movies" style={{ textDecoration: 'none' }}>
                   <div className="home__card-container flex flex-col">
                     <motion.article
                       variants={category}
@@ -98,7 +98,7 @@ export const Root = () => {
               const show = shows[randomNo];
 
               return (
-                <Link to="shows">
+                <Link to="shows" style={{ textDecoration: 'none' }}>
                   <div className="home__card-container flex flex-col">
                     <motion.article
                       variants={category}
