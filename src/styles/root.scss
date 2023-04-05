@@ -11,6 +11,7 @@
     min-height: 80vh;
 
     @media (min-width: 35em) {
+      grid-gap: 4rem;
       grid-template-columns: repeat(2, 1fr);
       align-content: center;
     }
@@ -21,15 +22,14 @@
   }
 
   &__card {
-    margin-block: auto;
-    // width: calc(35rem - 10vw);
+    margin-inline: auto;
+    max-width: 40rem;
     // border-radius: 33% 67% 77% 23% / 47% 44% 56% 53%;
   }
 
   &__card img {
     aspect-ratio: 1;
     object-fit: cover;
-    // max-width: 40rem;
 
     margin-block-start: 1.5rem;
     border-radius: 33% 67% 77% 23% / 47% 44% 56% 53%;
