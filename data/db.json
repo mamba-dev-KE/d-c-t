@@ -1,0 +1,23 @@
+{
+  "authors": [
+    {
+      "id": "901b3df6-62c7-4bd5-a0d7-82e28be409bd",
+      "name": "yooh",
+      "genre": "yooh"
+    },
+    {
+      "id": "56ffd35f-565c-4f90-8e66-2379261fc465",
+      "name": "maybe",
+      "genre": "maybe"
+    },
+    {
+      "id": "25c69090-73e0-443e-92aa-04a2b45b4774",
+      "name": "no",
+      "genre": "no"
+    }
+  ],
+  "books": [],
+  "library": {
+    "name": "City library"
+  }
+}
