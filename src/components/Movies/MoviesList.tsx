@@ -9,15 +9,11 @@ type Props = {
 export const container = {
   hidden: {
     opacity: 0,
-    filter: 'blur(10px)',
-    scale: 0.2,
-    x: -200,
+    filter: 'blur(3px)',
   },
   visible: {
     opacity: 1,
     filter: 'blur(0)',
-    scale: 1,
-    x: 0,
     transition: {
       staggerChildren: 0.3,
     },

@@ -13,7 +13,7 @@ type Props = {
 export const cardVariants = {
   hidden: {
     opacity: 0,
-    filter: 'blur(10px)',
+    filter: 'blur(3px)',
   },
   visible: {
     opacity: 1,

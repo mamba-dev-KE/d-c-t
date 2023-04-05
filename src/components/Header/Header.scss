@@ -9,6 +9,10 @@
 
   &__nav {
     display: none;
+
+    @media (min-width: 50em) {
+      display: block;
+    }
   }
 
   &__nav-list {
@@ -25,6 +29,10 @@
     svg {
       width: 2.4rem;
       aspect-ratio: 1;
+    }
+
+    @media (min-width: 50em) {
+      display: none;
     }
   }
 

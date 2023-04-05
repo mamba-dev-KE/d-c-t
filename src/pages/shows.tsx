@@ -17,7 +17,6 @@ const Shows = () => {
       <Suspense fallback={<h2>Loading...</h2>}>
         <Await resolve={showsPromise.shows}>
           {(shows) => {
-            console.log(shows);
             return <ShowsList shows={shows} />;
           }}
         </Await>
