@@ -34,13 +34,10 @@ const MovieDetails = () => {
           </h2>
         }
       >
-        <Await
-          resolve={moviePromise.movie}
-          errorElement={<h2>AN error occured</h2>}
-        >
+        <Await resolve={moviePromise.movie}>
           {(movie: Movie) => (
             <div className="details__container flex flex-col">
-              <div className="">
+              <div>
                 <motion.div
                   variants={container}
                   transition={{
@@ -61,23 +58,28 @@ const MovieDetails = () => {
                 <motion.img
                   variants={pixelDusts}
                   className="details__backdrop"
+                  style={{ aspectRatio: '16/9', width: '100%' }}
                   src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}`}
                   alt=""
                 />
               </div>
+
               <div className="details__info">
                 <ul className="flex">
                   <li>
-                    <strong>Genre:</strong> {movie?.genres[1]?.name}
+                    <strong>Genre:</strong>{' '}
+                    {movie?.genres[1]?.name ?? 'unspecified'}
                   </li>
                   <li>
-                    <strong>Release:</strong> {movie?.release_date}
+                    <strong>Release:</strong>{' '}
+                    {movie?.release_date ?? 'unspecified'}
                   </li>
                   <li>
                     <strong>Duration:</strong>{' '}
                     {movie.runtime
-                      ? `${Math.round(movie?.runtime / 60)} hrs`
-                      : 'unspecified hrs'}
+                      ? Math.round(movie?.runtime / 60)
+                      : 'unspecified'}
+                    hrs
                   </li>
                 </ul>
                 <p className="details__overview">{movie?.overview}</p>
