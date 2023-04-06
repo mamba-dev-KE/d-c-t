@@ -9,14 +9,18 @@ export const loader = () => {
 };
 
 const Movies = () => {
-  const moviesPromise = useLoaderData() as any;
+  const moviesPromise = useLoaderData() as Awaited<
+    Promise<{ movies: Movie[] }>
+  >;
+
+  type Movies = typeof moviesPromise.movies;
 
   return (
     <section className="movies">
       <h1 className="movies__title text-center">Trending Movies</h1>
       <Suspense fallback={<h2>Loading...</h2>}>
         <Await resolve={moviesPromise.movies}>
-          {(movies) => <MoviesList movies={movies} />}
+          {(movies: Movies) => <MoviesList movies={movies} />}
         </Await>
       </Suspense>
     </section>

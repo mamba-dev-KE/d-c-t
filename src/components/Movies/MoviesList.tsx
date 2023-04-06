@@ -1,9 +1,8 @@
-import type { Movies } from '@/api/api';
 import { motion } from 'framer-motion';
 import { Card as MovieCard } from '../Card/Card';
 
 type Props = {
-  movies: Movies[];
+  movies: Movie[];
 };
 
 export const container = {
@@ -28,7 +27,7 @@ export const MoviesList = ({ movies }: Props) => {
       variants={container}
       className="movies__list-container grid"
     >
-      {movies?.map(({ backdrop_path, id, title }) => (
+      {movies?.map(({ id, backdrop_path, title }) => (
         <MovieCard key={id} items={{ backdrop_path, id, title }} />
       ))}
     </motion.div>
