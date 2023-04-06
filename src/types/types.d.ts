@@ -1,4 +1,4 @@
-interface Movies {
+interface Movie {
     adult: boolean;
     backdrop_path: string | null;
     id: number;
@@ -16,8 +16,15 @@ interface Movies {
     vote_count: number;
 }
 
-interface Movie {
-    adult: boolean;
+interface Show extends Pick<Movie, 'adult' | 'backdrop_path' | 'id' | "original_language" | "overview" | "poster_path" | "media_type" | "genre_ids" | "popularity" | "vote_average" | "vote_count"> {
+    name: string;
+    original_name: string;
+    first_air_date: string;
+    origin_country: string[];
+    // episode_run_time: number[]
+
+}
+interface MovieDetails {
     backdrop_path: string | null;
     budget: number;
     genres: {
@@ -62,12 +69,4 @@ interface Movie {
         poster_path: string | null;
         backdrop_path: string | null;
     };
-}
-
-interface Shows extends Pick<Movies, "adult" | "backdrop_path" | "id" | "original_language" | "overview" | "poster_path" | "media_type" | "genre_ids" | "popularity" | "vote_average" | "vote_count"> {
-    name: string;
-    original_name: string;
-    first_air_date: string;
-    origin_country: string[];
-    episode_run_time: number[]
 }

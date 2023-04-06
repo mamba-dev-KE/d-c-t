@@ -11,7 +11,7 @@ export const loader = () => {
 
 export const Root = () => {
   const loaderData = useLoaderData() as Awaited<
-    Promise<{ movie: Movie[]; shows: Shows[] }>
+    Promise<{ movie: Movie[]; shows: Show[] }>
   >;
 
   type MoviesType = typeof loaderData.movie;
