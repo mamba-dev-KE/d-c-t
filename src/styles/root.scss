@@ -1,7 +1,7 @@
 .home {
   &__title {
-    font-size: var(--fs-700);
-    padding-block: min(1rem, 2vw);
+    font-size: var(--fs-600);
+    padding-block: min(2rem, 2vw);
   }
 
   &__cards {
@@ -40,11 +40,9 @@
   }
 
   h4 {
-    background-image: linear-gradient(
-      to right,
-      hsl(var(--clr-blue)),
-      hsl(var(--clr-yellow))
-    );
+    --gradient-14: conic-gradient(at top right, lime, cyan);
+
+    background-image: var(--gradient-14);
 
     -webkit-background-clip: text;
     background-clip: text;
