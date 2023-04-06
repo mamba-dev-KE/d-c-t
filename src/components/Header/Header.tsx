@@ -23,9 +23,6 @@ export const Header = () => {
             <li>
               <NavLink to="shows">TV Shows</NavLink>
             </li>
-            <li>
-              <NavLink to="test">Test</NavLink>
-            </li>
           </ul>
         </nav>
         <div className="header__burger">
