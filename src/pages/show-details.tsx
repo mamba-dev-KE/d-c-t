@@ -19,15 +19,19 @@ export const loader = ({ params }: LoaderFunctionArgs) => {
 };
 
 const ShowDetails = () => {
-  const [isLiked, setIsLiked] = useState(false);
+  const [isLiked, setIsLiked] = useState<boolean>(false);
 
-  const showPromise = useLoaderData() as any;
+  const showPromise = useLoaderData() as Awaited<
+    Promise<{ show: ShowDetails }>
+  >;
+
+  type Show = typeof showPromise.show;
 
   return (
     <section className="movie__details">
       <Suspense fallback={<h2>Loading....</h2>}>
         <Await resolve={showPromise.show}>
-          {(show) => (
+          {(show: Show) => (
             <div className="show__details-container">
               <div className="flex items-center">
                 <div className="show__details-info">
