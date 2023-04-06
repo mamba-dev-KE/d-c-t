@@ -1,5 +1,57 @@
-.movie__details {
-  &-title {
-    padding-block: 1rem;
+.details {
+  min-height: 92vh;
+  // display: grid;
+  // place-content: center;
+
+  &__title {
+    font-size: var(--fs-500);
+  }
+
+  &__backdrop {
+    // width: 70%;
+  }
+
+  &__container {
+    --gap: 2rem;
+
+    margin-top: 2rem;
+
+    max-width: 60rem;
+    margin-inline: auto;
+
+    &-header {
+      margin-block: 1rem;
+    }
+  }
+
+  &__back-btn {
+    font-size: var(--fs-400);
+    font-weight: 700;
+    color: hsl(var(--clr-blue));
+
+    padding: 0.5rem 1.5rem;
+    background: hsl(var(--clr-white));
+    border-radius: 100vmax;
+    border: 0;
+  }
+
+  &__info {
+    ul {
+      list-style-type: none;
+      font-size: var(--fs-300);
+      padding-block: 0.75rem;
+
+      @media (min-width: 35em) {
+        font-size: var(--fs-400);
+      }
+    }
+
+    ul > * {
+    }
+  }
+
+  &__overview {
+    // padding-block: 0.5rem;
+    font-size: var(--fs-500);
   }
 }

@@ -1,4 +1,3 @@
-import { getMovie } from '@/api/api';
 import { Suspense } from 'react';
 import {
   Await,
@@ -8,7 +7,8 @@ import {
   useLoaderData,
 } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { imageFadeIn } from '@/common/animations';
+import { container, pixelDusts } from '@/common/animations';
+import { getMovie } from '@/api/api';
 import '@/styles/details.scss';
 
 export const loader = ({ params }: LoaderFunctionArgs) => {
@@ -23,28 +23,49 @@ const MovieDetails = () => {
   type Movie = typeof moviePromise.movie;
 
   return (
-    <section className="movie__details">
-      <Suspense fallback={<h2>Loading....</h2>}>
+    <motion.section initial="hidden" animate="visible" className="details">
+      <Suspense
+        fallback={
+          <h2
+            className="suspense-title"
+            style={{ marginBlockStart: '3.5srem' }}
+          >
+            Loading....
+          </h2>
+        }
+      >
         <Await
           resolve={moviePromise.movie}
           errorElement={<h2>AN error occured</h2>}
         >
           {(movie: Movie) => (
-            <div className="movie__details-container">
-              <div className="flex items-center">
-                <Link to="..">Back</Link>
-                <h1 className="movie__details-title text-center">
-                  {movie?.title} : {movie?.tagline ?? ''}
-                </h1>
-              </div>
-              <motion.img
-                variants={imageFadeIn}
-                initial="hidden"
-                animate="visible"
-                src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}`}
-                alt=""
-              />
+            <div className="details__container flex flex-col">
               <div className="">
+                <motion.div
+                  variants={container}
+                  transition={{
+                    delayChildren: 1,
+                  }}
+                  className="details__container-header flex justify-between items-center "
+                >
+                  <h1 className="details__title text-center">{movie?.title}</h1>
+                  <Link
+                    to=".."
+                    className="details__back-btn"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    Back
+                  </Link>
+                </motion.div>
+
+                <motion.img
+                  variants={pixelDusts}
+                  className="details__backdrop"
+                  src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}`}
+                  alt=""
+                />
+              </div>
+              <div className="details__info">
                 <ul className="flex">
                   <li>
                     <strong>Genre:</strong> {movie?.genres[1]?.name}
@@ -59,13 +80,13 @@ const MovieDetails = () => {
                       : 'unspecified hrs'}
                   </li>
                 </ul>
+                <p className="details__overview">{movie?.overview}</p>
               </div>
-              <p>{movie?.overview}</p>
             </div>
           )}
         </Await>
       </Suspense>
-    </section>
+    </motion.section>
   );
 };
 
