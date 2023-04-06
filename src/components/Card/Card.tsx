@@ -28,11 +28,7 @@ export const Card = ({ items }: Props) => {
     <motion.article variants={cardVariants} className="movies__list-card">
       <Link to={String(id)} style={{ textDecoration: 'none', color: 'black' }}>
         <img
-          src={
-            backdrop_path
-              ? `https://image.tmdb.org/t/p/original${backdrop_path}`
-              : 'https://via.placeholder.com/600x400'
-          }
+          src={` https://image.tmdb.org/t/p/original${backdrop_path}`}
           alt=""
           loading="lazy"
         />

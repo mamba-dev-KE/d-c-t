@@ -79,21 +79,12 @@ export const Root = () => {
                       className="home__card"
                       style={{ overflow: 'hidden' }}
                     >
-                      {typeof movie?.backdrop_path === 'undefined' ? (
-                        <img
-                          src="https://via.placeholder.com/600x400"
-                          alt={movie?.title}
-                          draggable={false}
-                          style={{ objectFit: 'cover' }}
-                        />
-                      ) : (
-                        <img
-                          src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}`}
-                          alt={movie?.title}
-                          draggable={false}
-                          style={{ objectFit: 'cover' }}
-                        />
-                      )}
+                      <img
+                        src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}`}
+                        alt={movie?.title}
+                        draggable={false}
+                        style={{ objectFit: 'cover' }}
+                      />
                     </motion.article>
                     <h4 className="home__card-title text-center">
                       {movie?.title}
@@ -119,19 +110,11 @@ export const Root = () => {
                       variants={category}
                       className="home__card home__card--show"
                     >
-                      {typeof show?.backdrop_path === 'undefined' ? (
-                        <img
-                          src="https://via.placeholder.com/600x400"
-                          alt={show?.title}
-                          draggable={false}
-                        />
-                      ) : (
-                        <img
-                          src={`https://image.tmdb.org/t/p/w1280${show?.backdrop_path}`}
-                          alt={show?.title}
-                          draggable={false}
-                        />
-                      )}
+                      <img
+                        src={`https://image.tmdb.org/t/p/w1280${show?.backdrop_path}`}
+                        alt={show?.title}
+                        draggable={false}
+                      />
                     </motion.article>
                     <h4 className="home__card-title text-center">
                       {show?.name}
