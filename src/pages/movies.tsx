@@ -1,8 +1,8 @@
 import { Await, defer, useLoaderData } from 'react-router-dom';
-import { getTrendingMovies } from '@/api/api';
 import { Suspense } from 'react';
+import { getTrendingMovies } from '@/api/api';
 import { MoviesList } from '@/components';
-import '@/styles/movies.scss';
+import '@/styles/list.scss';
 
 export const loader = () => {
   return defer({ movies: getTrendingMovies() });
@@ -16,8 +16,8 @@ const Movies = () => {
   type Movies = typeof moviesPromise.movies;
 
   return (
-    <section className="movies">
-      <h1 className="movies__title text-center">Trending Movies</h1>
+    <section className="movie-show">
+      <h1 className="movie-show__title text-center">Trending Movies</h1>
       <Suspense fallback={<h2 className="suspense-title">Loading...</h2>}>
         <Await resolve={moviesPromise.movies}>
           {(movies: Movies) => <MoviesList movies={movies} />}

@@ -1,16 +1,9 @@
 import { motion } from 'framer-motion';
-import { Card as MovieCard } from '../Card/Card';
+import { container } from '@/common/animations';
+import { Card as MovieCard } from '@/components';
 
 type Props = {
   movies: Movie[];
-};
-
-const container = {
-  visible: {
-    transition: {
-      staggerChildren: 0.3,
-    },
-  },
 };
 
 export const MoviesList = ({ movies }: Props) => {

@@ -1,10 +1,11 @@
 .header {
   min-height: 8vh;
-  background-color: rgb(6, 6, 37);
-  color: white;
+  background-color: hsl(var(--clr-blue-dark));
+  color: hsl(var(--clr-white));
 
   &__logo {
     font-size: var(--fs-600);
+    font-weight: 700;
   }
 
   &__nav {
@@ -19,7 +20,7 @@
     list-style-type: none;
 
     li a {
-      color: white;
+      color: hsl(var(--clr-white));
       text-decoration: none;
       font-size: var(--fs-400);
     }
@@ -37,6 +38,6 @@
   }
 
   .active {
-    border-bottom: 2px solid hsl(0, 0%, 100%);
+    border-bottom: 2px solid hsl(var(--clr-white));
   }
 }

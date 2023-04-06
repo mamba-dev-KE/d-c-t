@@ -1,8 +1,8 @@
 import { Await, defer, useLoaderData } from 'react-router-dom';
-import { getTrendingShows } from '@/api/api';
 import { Suspense } from 'react';
+import { getTrendingShows } from '@/api/api';
 import { ShowsList } from '@/components';
-import '@/styles/shows.scss';
+import '@/styles/list.scss';
 
 export const loader = () => {
   return defer({ shows: getTrendingShows() });
@@ -14,13 +14,11 @@ const Shows = () => {
   type Shows = typeof showsPromise.shows;
 
   return (
-    <section className="shows">
-      <h1 className="shows__title text-center">Trending Shows</h1>
+    <section className="movie-show">
+      <h1 className="movie-show__title text-center">Trending Shows</h1>
       <Suspense fallback={<h2 className="suspense-title">Loading...</h2>}>
         <Await resolve={showsPromise.shows}>
-          {(shows: Shows) => {
-            return <ShowsList shows={shows} />;
-          }}
+          {(shows: Shows) => <ShowsList shows={shows} />}
         </Await>
       </Suspense>
     </section>

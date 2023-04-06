@@ -11,7 +11,7 @@ import { motion } from 'framer-motion';
 import { HeartIcon } from '@heroicons/react/24/solid';
 import { HeartIcon as HeartIconOutline } from '@heroicons/react/24/outline';
 
-import { imagePixelDust } from '@/common/animations';
+import { pixelDusts } from '@/common/animations';
 import '@/styles/shows.scss';
 
 export const loader = ({ params }: LoaderFunctionArgs) => {
@@ -42,7 +42,7 @@ const ShowDetails = () => {
                     </h1>
                   </div>
                   <motion.img
-                    variants={imagePixelDust}
+                    variants={pixelDusts}
                     initial="hidden"
                     animate="visible"
                     style={{ aspectRatio: '16/9', width: '100%' }}
