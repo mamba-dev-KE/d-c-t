@@ -16,7 +16,11 @@ export const loader = ({ params }: LoaderFunctionArgs) => {
 };
 
 const MovieDetails = () => {
-  const moviePromise = useLoaderData() as any;
+  const moviePromise = useLoaderData() as Awaited<
+    Promise<{ movie: MovieDetails }>
+  >;
+
+  type Movie = typeof moviePromise.movie;
 
   return (
     <section className="movie__details">
@@ -25,7 +29,7 @@ const MovieDetails = () => {
           resolve={moviePromise.movie}
           errorElement={<h2>AN error occured</h2>}
         >
-          {(movie) => (
+          {(movie: Movie) => (
             <div className="movie__details-container">
               <div className="flex items-center">
                 <Link to="..">Back</Link>
@@ -49,8 +53,10 @@ const MovieDetails = () => {
                     <strong>Release:</strong> {movie?.release_date}
                   </li>
                   <li>
-                    <strong>Duration:</strong> {Math.round(movie?.runtime / 60)}
-                    hrs
+                    <strong>Duration:</strong>{' '}
+                    {movie.runtime
+                      ? `${Math.round(movie?.runtime / 60)} hrs`
+                      : 'unspecified hrs'}
                   </li>
                 </ul>
               </div>
