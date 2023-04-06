@@ -18,7 +18,7 @@ const Movies = () => {
   return (
     <section className="movies">
       <h1 className="movies__title text-center">Trending Movies</h1>
-      <Suspense fallback={<h2>Loading...</h2>}>
+      <Suspense fallback={<h2 className="suspense-title">Loading...</h2>}>
         <Await resolve={moviesPromise.movies}>
           {(movies: Movies) => <MoviesList movies={movies} />}
         </Await>

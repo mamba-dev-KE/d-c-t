@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { type Variants, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 type Props = {
@@ -10,14 +10,17 @@ type Props = {
   };
 };
 
-export const cardVariants = {
+export const cardVariants: Variants = {
   hidden: {
     opacity: 0,
-    filter: 'blur(3px)',
+    // filter: 'blur(3px)',
   },
   visible: {
     opacity: 1,
-    filter: 'blur(0)',
+    transition: {
+      duration: 0.1,
+    },
+    // filter: 'blur(0)',
   },
 };
 
