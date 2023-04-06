@@ -5,14 +5,8 @@ type Props = {
   movies: Movie[];
 };
 
-export const container = {
-  hidden: {
-    opacity: 0,
-    filter: 'blur(3px)',
-  },
+const container = {
   visible: {
-    opacity: 1,
-    filter: 'blur(0)',
     transition: {
       staggerChildren: 0.3,
     },

@@ -10,17 +10,17 @@ type Props = {
   };
 };
 
-export const cardVariants: Variants = {
+const card: Variants = {
   hidden: {
     opacity: 0,
-    // filter: 'blur(3px)',
+    filter: 'blur(3px)',
   },
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.1,
+      duration: 0.5,
     },
-    // filter: 'blur(0)',
+    filter: 'blur(0)',
   },
 };
 
@@ -28,7 +28,7 @@ export const Card = ({ items }: Props) => {
   const { id, backdrop_path, title, name } = items;
 
   return (
-    <motion.article variants={cardVariants} className="movies__list-card">
+    <motion.article variants={card} className="movies__list-card">
       <Link to={String(id)} style={{ textDecoration: 'none', color: 'black' }}>
         <img
           src={` https://image.tmdb.org/t/p/original${backdrop_path}`}

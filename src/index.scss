@@ -19,6 +19,8 @@
   --clr-greenish: 181 28% 31%;
   --clr-gray: 0 0% 90%;
   --clr-white: 0 0% 100%;
+
+  --gradient-14: conic-gradient(at top right, lime, cyan);
 }
 
 :root {
@@ -36,7 +38,7 @@ body {
     hsl(var(--clr-black)),
     hsl(var(--clr-greenish))
   );
-  color: white;
+  color: hsl(var(--clr-white));
 }
 
 img {
@@ -92,7 +94,6 @@ img {
 .rounded-full {
   border-radius: 50%;
 }
-
 
 .suspense-title {
   text-align: center;
