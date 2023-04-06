@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { Await, Link, defer, useLoaderData } from 'react-router-dom';
 import { Variants, motion } from 'framer-motion';
 import { getTrendingMovies, getTrendingShows } from '@/api/api';
+import { suspenseTitle } from '@/common/animations';
 import { generateRandomNumber } from '@/utils';
 import '@/styles/root.scss';
 
@@ -15,17 +16,6 @@ export const Root = () => {
   >;
 
   type MoviesType = typeof loaderData.movie;
-
-  const title: Variants = {
-    hidden: {
-      opacity: 0,
-      y: 100,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-    },
-  };
 
   const categories: Variants = {
     hidden: {
@@ -57,16 +47,13 @@ export const Root = () => {
       <h1 className="home__title text-center">Movies or Series!</h1>
       <Suspense
         fallback={
-          <motion.h2 variants={title} className="suspense-title">
+          <motion.h2 variants={suspenseTitle} className="suspense-title">
             Loading..please wait...
           </motion.h2>
         }
       >
         <motion.div variants={categories} className="home__cards">
-          <Await
-            resolve={loaderData.movie}
-            errorElement={<h2>An error occured</h2>}
-          >
+          <Await resolve={loaderData.movie}>
             {(movies: MoviesType) => {
               const randomNo = generateRandomNumber(movies.length);
               const movie = movies[randomNo];
@@ -91,10 +78,7 @@ export const Root = () => {
             }}
           </Await>
 
-          <Await
-            resolve={loaderData.shows}
-            errorElement={<h2>An error occured</h2>}
-          >
+          <Await resolve={loaderData.shows}>
             {(shows) => {
               const randomNo = generateRandomNumber(shows.length);
               const show = shows[randomNo];

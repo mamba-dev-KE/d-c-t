@@ -12,3 +12,14 @@ export const container: Variants = {
     },
   },
 };
+
+export const suspenseTitle: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 100,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+  },
+};

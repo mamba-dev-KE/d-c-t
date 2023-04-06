@@ -1,4 +1,7 @@
 import { isRouteErrorResponse, useRouteError } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { suspenseTitle } from '@/common/animations';
+import { Header } from '@/components';
 
 export const Error = () => {
   const error = useRouteError();
@@ -6,10 +9,15 @@ export const Error = () => {
   if (isRouteErrorResponse(error)) {
     return (
       <div>
-        <pre>{JSON.stringify(error, null, 2)}</pre>
-        <h2>
-          {error.status} {error?.statusText}
-        </h2>
+        <Header />
+        <motion.h2
+          initial="hidden"
+          animate="visible"
+          variants={suspenseTitle}
+          style={{ color: 'red', textAlign: 'center' }}
+        >
+          {error.status} : {error?.statusText}
+        </motion.h2>
       </div>
     );
   }
