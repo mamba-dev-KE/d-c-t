@@ -6,7 +6,7 @@ export const Header = () => {
     <header className="header flex items-center">
       <div className="container flex justify-between items-center">
         <div className="header__logo">
-          <p>
+          <p className="logo">
             <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
               Naiflix
             </Link>

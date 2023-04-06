@@ -16,7 +16,7 @@
 
   --clr-black: 0 0% 0%;
   --clr-blue: 221 51% 16%;
-  --clr-yellow: 51 100% 50%;
+  --clr-greenish: 181 28% 31%;
   --clr-gray: 0 0% 90%;
   --clr-white: 0 0% 100%;
 }
@@ -31,7 +31,11 @@
 
 body {
   min-height: 100vh;
-  background-image: linear-gradient(to right, #000000, #396566);
+  background-image: linear-gradient(
+    to right,
+    hsl(var(--clr-black)),
+    hsl(var(--clr-greenish))
+  );
   color: white;
 }
 
@@ -89,13 +93,6 @@ img {
   border-radius: 50%;
 }
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
 
 .suspense-title {
   text-align: center;

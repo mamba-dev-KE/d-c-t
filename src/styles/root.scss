@@ -39,7 +39,9 @@
     box-shadow: 0px 0px var(--blur-radius) 0px
       hsl(var(--clr-white) / var(--color-opacity));
 
-    transition: box-shadow 250ms ease-in-out;
+    filter: drop-shadow(0 0 60px hsl(var(--clr-greenish)));
+
+    transition: box-shadow 250ms ease-in-out, filter 500ms ease;
 
     &:hover {
       --blur-radius: 60px;
@@ -47,6 +49,8 @@
 
       box-shadow: 0px 0px var(--blur-radius) 0px
         hsl(var(--clr-white) / var(--color-opacity));
+
+      filter: drop-shadow(0 0 80px hsl(var(--clr-greenish)));
     }
   }
 
