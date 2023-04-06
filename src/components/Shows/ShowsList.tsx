@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
-import type { Shows } from '@/api/api';
 import { Card as ShowCard } from '../Card/Card';
 
 type Props = {
-  shows: Shows[];
+  shows: Show[];
 };
 
 const container = {

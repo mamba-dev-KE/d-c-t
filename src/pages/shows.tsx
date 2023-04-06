@@ -9,14 +9,16 @@ export const loader = () => {
 };
 
 const Shows = () => {
-  const showsPromise = useLoaderData() as any;
+  const showsPromise = useLoaderData() as Awaited<Promise<{ shows: Show[] }>>;
+
+  type Shows = typeof showsPromise.shows;
 
   return (
     <section className="shows">
       <h1 className="shows__title text-center">Trending Shows</h1>
       <Suspense fallback={<h2 className="suspense-title">Loading...</h2>}>
         <Await resolve={showsPromise.shows}>
-          {(shows) => {
+          {(shows: Shows) => {
             return <ShowsList shows={shows} />;
           }}
         </Await>
