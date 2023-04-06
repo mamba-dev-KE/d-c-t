@@ -37,7 +37,7 @@ const MovieDetails = () => {
                 variants={imageFadeIn}
                 initial="hidden"
                 animate="visible"
-                src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}` ?? ''}
+                src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}`}
                 alt=""
               />
               <div className="">
