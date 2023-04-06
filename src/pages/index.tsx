@@ -74,11 +74,7 @@ export const Root = () => {
               return (
                 <Link to="movies" style={{ textDecoration: 'none' }}>
                   <div className="home__card-container flex flex-col">
-                    <motion.article
-                      variants={category}
-                      className="home__card"
-                      style={{ overflow: 'hidden' }}
-                    >
+                    <motion.article variants={category} className="home__card">
                       <img
                         src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}`}
                         alt={movie?.title}
