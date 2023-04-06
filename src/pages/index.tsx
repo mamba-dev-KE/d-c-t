@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Await, Link, defer, useLoaderData } from 'react-router-dom';
 import { Variants, motion } from 'framer-motion';
-import { Movie, Shows, getTrendingMovies, getTrendingShows } from '@/api/api';
+import { getTrendingMovies, getTrendingShows } from '@/api/api';
 import { generateRandomNumber } from '@/utils';
 import '@/styles/root.scss';
 
@@ -11,8 +11,10 @@ export const loader = () => {
 
 export const Root = () => {
   const loaderData = useLoaderData() as Awaited<
-    Promise<{ movie: Movie; shows: Shows }>
+    Promise<{ movie: Movie[]; shows: Shows[] }>
   >;
+
+  type MoviesType = typeof loaderData.movie;
 
   const title: Variants = {
     hidden: {
@@ -55,14 +57,7 @@ export const Root = () => {
       <h1 className="home__title text-center">Movies or Series!</h1>
       <Suspense
         fallback={
-          <motion.h2
-            variants={title}
-            style={{
-              textAlign: 'center',
-              color: 'burlywood',
-              fontSize: '1.5rem',
-            }}
-          >
+          <motion.h2 variants={title} className="suspense-title">
             Loading..please wait...
           </motion.h2>
         }
@@ -72,7 +67,7 @@ export const Root = () => {
             resolve={loaderData.movie}
             errorElement={<h2>An error occured</h2>}
           >
-            {(movies) => {
+            {(movies: MoviesType) => {
               const randomNo = generateRandomNumber(movies.length);
               const movie = movies[randomNo];
 
@@ -108,6 +103,7 @@ export const Root = () => {
               );
             }}
           </Await>
+
           <Await
             resolve={loaderData.shows}
             errorElement={<h2>An error occured</h2>}
