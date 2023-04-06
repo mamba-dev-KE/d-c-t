@@ -12,7 +12,7 @@ import { HeartIcon } from '@heroicons/react/24/solid';
 import { HeartIcon as HeartIconOutline } from '@heroicons/react/24/outline';
 
 import { pixelDusts } from '@/common/animations';
-import '@/styles/shows.scss';
+import '@/styles/details.scss';
 
 export const loader = ({ params }: LoaderFunctionArgs) => {
   return defer({ show: getShow(params.id) });

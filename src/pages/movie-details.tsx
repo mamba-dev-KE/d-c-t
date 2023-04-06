@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { imageFadeIn } from '@/common/animations';
-import '@/styles/movies.scss';
+import '@/styles/details.scss';
 
 export const loader = ({ params }: LoaderFunctionArgs) => {
   return defer({ movie: getMovie(params.id) });

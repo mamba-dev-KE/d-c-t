@@ -12,7 +12,7 @@ export const MoviesList = ({ movies }: Props) => {
       initial="hidden"
       animate="visible"
       variants={container}
-      className="movies__list-container grid"
+      className="movie-show__list-container grid"
     >
       {movies?.map(({ id, backdrop_path, title }) => (
         <MovieCard key={id} items={{ backdrop_path, id, title }} />
