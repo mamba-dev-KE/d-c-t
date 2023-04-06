@@ -17,7 +17,7 @@ export const Root = () => {
 
   type MoviesType = typeof loaderData.movie;
 
-  const categories: Variants = {
+  const container: Variants = {
     hidden: {
       opacity: 0,
     },
@@ -29,7 +29,7 @@ export const Root = () => {
     },
   };
 
-  const category: Variants = {
+  const card: Variants = {
     hidden: {
       opacity: 0,
       scale: 0.5,
@@ -38,6 +38,19 @@ export const Root = () => {
     visible: {
       opacity: 1,
       scale: 1,
+      filter: 'blur(0px)',
+    },
+  };
+
+  const name: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+      filter: 'blur(3px)',
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
       filter: 'blur(0px)',
     },
   };
@@ -52,7 +65,7 @@ export const Root = () => {
           </motion.h2>
         }
       >
-        <motion.div variants={categories} className="home__cards">
+        <motion.div variants={container} className="home__cards">
           <Await resolve={loaderData.movie}>
             {(movies: MoviesType) => {
               const randomNo = generateRandomNumber(movies.length);
@@ -61,7 +74,7 @@ export const Root = () => {
               return (
                 <Link to="movies" style={{ textDecoration: 'none' }}>
                   <div className="home__card-container flex flex-col">
-                    <motion.article variants={category} className="home__card">
+                    <motion.article variants={card} className="home__card">
                       <img
                         src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}`}
                         alt={movie?.title}
@@ -69,9 +82,12 @@ export const Root = () => {
                         style={{ objectFit: 'cover' }}
                       />
                     </motion.article>
-                    <h4 className="home__card-title text-center">
+                    <motion.h4
+                      variants={name}
+                      className="home__card-title text-center"
+                    >
                       {movie?.title}
-                    </h4>
+                    </motion.h4>
                   </div>
                 </Link>
               );
@@ -87,7 +103,7 @@ export const Root = () => {
                 <Link to="shows" style={{ textDecoration: 'none' }}>
                   <div className="home__card-container flex flex-col">
                     <motion.article
-                      variants={category}
+                      variants={card}
                       className="home__card home__card--show"
                     >
                       <img
@@ -96,9 +112,12 @@ export const Root = () => {
                         draggable={false}
                       />
                     </motion.article>
-                    <h4 className="home__card-title text-center">
+                    <motion.h4
+                      variants={name}
+                      className="home__card-title text-center"
+                    >
                       {show?.name}
-                    </h4>
+                    </motion.h4>
                   </div>
                 </Link>
               );

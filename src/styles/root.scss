@@ -1,4 +1,6 @@
 .home {
+  overflow: hidden;
+
   &__title {
     font-size: var(--fs-600);
     padding-block: min(2rem, 2vw);
