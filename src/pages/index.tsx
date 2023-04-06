@@ -45,12 +45,12 @@ export const Root = () => {
   const name: Variants = {
     hidden: {
       opacity: 0,
-      y: 50,
+      x: -50,
       filter: 'blur(3px)',
     },
     visible: {
       opacity: 1,
-      y: 0,
+      x: 0,
       filter: 'blur(0px)',
     },
   };

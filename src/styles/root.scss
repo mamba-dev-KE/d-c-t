@@ -1,16 +1,14 @@
 .home {
-  overflow: hidden;
-
   &__title {
     font-size: var(--fs-600);
     padding-block: min(2rem, 2vw);
   }
 
   &__cards {
+    min-height: 80vh;
+
     display: grid;
     justify-content: center;
-
-    min-height: 80vh;
 
     @media (min-width: 35em) {
       grid-gap: 4rem;
