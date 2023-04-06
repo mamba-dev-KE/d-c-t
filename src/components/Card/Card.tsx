@@ -1,5 +1,6 @@
 import { type Variants, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import './Card.scss';
 
 type Props = {
   items: {
@@ -28,7 +29,7 @@ export const Card = ({ items }: Props) => {
   const { id, backdrop_path, title, name } = items;
 
   return (
-    <motion.article variants={card} className="movies__list-card">
+    <motion.article variants={card} className="card">
       <Link to={String(id)} style={{ textDecoration: 'none', color: 'black' }}>
         <img
           src={` https://image.tmdb.org/t/p/original${backdrop_path}`}

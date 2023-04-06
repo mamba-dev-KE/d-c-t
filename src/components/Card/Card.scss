@@ -1,0 +1,19 @@
+.card {
+  min-height: 30rem;
+  border-radius: 0.5rem;
+
+  overflow: hidden;
+
+  img {
+    object-fit: cover;
+    height: 28rem;
+  }
+
+  h3 {
+    background-color: hsl(var(--clr-blue) / 0.4);
+    padding-block: 1.5rem;
+
+    color: white;
+    letter-spacing: 1px;
+  }
+}

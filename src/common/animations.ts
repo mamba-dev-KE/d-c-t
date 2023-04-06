@@ -12,13 +12,3 @@ export const container: Variants = {
     },
   },
 };
-
-export const subtitle: Variants = {
-  hidden: {
-    opacity: 0,
-
-  },
-  visible: {
-    opacity: 1
-  }
-}
